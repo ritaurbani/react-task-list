@@ -22,41 +22,51 @@ function App() {
         <h2>TASK MANAGER</h2>
       </header>
       <h3 className='title'> Current Tasks {currentTasks.length}</h3 >
-      <ul>
+      <div>
         {
-          currentTasks.map((task, index) => {
+          currentTasks.map(({ title, priority, estimatedTime, state }, index) => {
             return (
               <ul className='list'>
-                <li key={index}>{task.title} 
-                  <span className='tag'>{task.state}</span>
-                </li> 
-                <li key={index}><span>Priority:{task.priority}</span></li>
-                <li key={index}><span>Est.Time:{task.estimatedTime}</span></li>
+                <li key={index}>{title}
+                  <span className='tag'>{state}</span>
+                </li>
+                <li key={index}><span>Priority:{priority}</span></li>
+                <li key={index}><span>Est.Time:{estimatedTime}</span></li>
               </ul>
             )
           })
         }
-      </ul>
+      </div>
 
       <hr />
 
       <h3 className='title'> Completed Tasks {completedTasks.length} </h3>
-      <ul>
+      <div>
         {
           completedTasks.map((task, index) => {
             return (
-              <ul>
-                <li key={index}>{task.title}</li>
+              <ul className='list'>
+                <li key={index}>{task.title}
+                   <span className='tag'>{task.state}</span>
+                </li>   
                 <li key={index}><span>Priority:{task.priority}</span></li>
                 <li key={index}><span>Est.Time:{task.estimatedTime}</span></li>
               </ul>
             )
           })
         }
-      </ul>
+      </div>
     </>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
 
